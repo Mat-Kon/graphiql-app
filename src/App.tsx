@@ -1,7 +1,7 @@
+import Footer from './components/footer/Footer';
+
 function App() {
-  return (
-    <h1>New Project</h1>
-  )
+  return <Footer />;
 }
 
-export default App
+export default App;

@@ -1,6 +1,9 @@
-const Footer = () => {
+import React from 'react';
+import styles from './index.module.css';
+
+const Footer: React.FC = () => {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <div className="authors">
         <ul className="authors__list">
           <li className="authors__item">
