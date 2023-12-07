@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
@@ -6,9 +6,26 @@ import { useLanguageContext } from '../../utils/hooks/useLangContext';
 const Header: React.FC = () => {
   const isAuth = false;
   const { translations, currentLanguage, changeLanguage } = useLanguageContext();
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 5) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}>
       {isAuth ? (
         <div className={styles.wrapper}>
           <Link to={'/'} className={styles.btns}>
