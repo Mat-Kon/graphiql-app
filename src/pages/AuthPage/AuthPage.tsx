@@ -1,10 +1,10 @@
-import SignUp from '../../components/SignUp/SignUp';
+import SignIn from '../../components/SignIn/SignIn';
 import styles from './auth.module.css';
 
 const AuthPage = () => {
   return (
     <div className={styles.container}>
-      <SignUp />
+      <SignIn />
     </div>
   );
 };

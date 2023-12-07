@@ -1,24 +1,24 @@
-import styles from './signup.module.css';
+import styles from './signin.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
-import { schema } from '../../validation/validation';
-import { IFormData } from '../../types/types';
+import { schemaSignIn } from '../../validation/validation';
+import { ISignInFormData } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 
-const error: SubmitErrorHandler<IFormData> = (data) => console.log(data);
+const error: SubmitErrorHandler<ISignInFormData> = (data) => console.log(data);
 
-const SignUp = () => {
+const SignIn = () => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<IFormData>({
+  } = useForm<ISignInFormData>({
     mode: 'onChange',
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaSignIn),
   });
 
-  const onSubmit: SubmitHandler<IFormData> = (data) => {
+  const onSubmit: SubmitHandler<ISignInFormData> = (data) => {
     console.log(data);
     navigate('/');
   };
@@ -27,7 +27,7 @@ const SignUp = () => {
     <>
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit, error)}>
-          <h1 className={styles.title}> Please sign up:</h1>
+          <h1 className={styles.title}> Log in:</h1>
           <label htmlFor="email">
             <input
               className={styles.input}
@@ -49,18 +49,6 @@ const SignUp = () => {
             />
             {errors.password ? <p className={styles.error}>{errors.password.message}</p> : null}
           </label>
-          <label htmlFor="passwordRepeat">
-            <input
-              className={styles.input}
-              type="text"
-              placeholder="Repeat password"
-              id={'passwordRepeat'}
-              {...register('passwordRepeat', { required: true })}
-            />
-            {errors.passwordRepeat ? (
-              <p className={styles.error}>{errors.passwordRepeat.message}</p>
-            ) : null}
-          </label>
           <input className={styles.submit} type="submit" value={'Submit'} disabled={!isValid} />
         </form>
       </div>
@@ -68,4 +56,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
