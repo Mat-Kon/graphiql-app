@@ -16,3 +16,13 @@ export const schema = object({
       return this.parent.password === value;
     }),
 });
+
+export const schemaSignIn = object({
+  email: string().email('Use the correct email').required('Email is required'),
+  password: string()
+    .required('Password is required')
+    .matches(
+      PASS_REG,
+      'The password must contain at least 1 digit, 1 letter, 1 special character, at least 8 characters'
+    ),
+});
