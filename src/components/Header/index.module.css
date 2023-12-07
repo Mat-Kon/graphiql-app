@@ -1,0 +1,80 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-height: 12vh;
+  font-size: 20px;
+  color: var(--color-white);
+  background-color: var(--color-blue-dard);
+  border-bottom: 2px solid var(--color-blue-light);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 10px 0 5px
+}
+
+.btns_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  max-width: 30%;
+}
+
+.btns {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: all 0.5s;
+  border-bottom: 2px solid var(--color-blue-dard);
+}
+
+.btns:hover {
+  color: var(--color-orange);
+  border-bottom: 2px solid var(--color-orange);
+}
+
+.switch_ln {
+  display: flex;
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.switch_ln:hover {
+  cursor: pointer;
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange);
+}
+
+.switch_ln:active {
+  transform: scale(0.9);
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 95%;
+  }
+
+  
+  .btns_container {
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .btns_container {
+    width: 100%;
+  }
+
+  .btns_container.auth {
+    width: 40%;
+  }
+}
