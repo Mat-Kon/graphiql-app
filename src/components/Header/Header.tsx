@@ -1,34 +1,40 @@
 import React from 'react';
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
+import { useLanguageContext } from '../../utils/hooks/useLangContext';
 
 const Header: React.FC = () => {
   const isAuth = false;
+  const { translations, currentLanguage, changeLanguage } = useLanguageContext();
 
   return (
     <header className={styles.header}>
       {isAuth ? (
         <div className={styles.wrapper}>
           <Link to={'/'} className={styles.btns}>
-            Welcome
+            {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
             <Link to={'/'} className={styles.btns}>
-              Sign Out
+              {translations[currentLanguage].logout}
             </Link>
-            <span className={styles.switch_ln}>EN</span>
+            <span className={styles.switch_ln} onClick={changeLanguage}>
+              {currentLanguage}
+            </span>
           </div>
         </div>
       ) : (
         <div className={styles.wrapper} style={{ justifyContent: 'flex-end' }}>
           <div className={styles.btns_container}>
             <Link to={'/auth'} className={styles.btns}>
-              Log in
+              {translations[currentLanguage].login}
             </Link>
             <Link to={'/regitstartion'} className={styles.btns}>
-              Sign Up
+              {translations[currentLanguage].signup}
             </Link>
-            <span className={styles.switch_ln}>EN</span>
+            <span className={styles.switch_ln} onClick={changeLanguage}>
+              {currentLanguage}
+            </span>
           </div>
         </div>
       )}

@@ -1,0 +1,27 @@
+{
+  "en": {
+    "login": "Log in",
+    "logout": "Log out",
+    "welcome": "Welcome",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "konstantin": "Konstantin",
+    "eugenia": "Eugenia",
+    "olya": "Olya"
+
+  },
+  "ru": {
+    "login": "Вход",
+    "logout": "Выход",
+    "welcome": "Приветствуем",
+    "signup": "Регистрация",
+    "email": "Почта",
+    "password": "Пароль",
+    "submit": "Отправить",
+    "konstantin": "Константин",
+    "eugenia": "Евгения",
+    "olya": "Оля"
+  }
+}
