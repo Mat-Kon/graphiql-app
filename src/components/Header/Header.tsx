@@ -23,7 +23,6 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
   return (
     <header className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}>
       {isAuth ? (
