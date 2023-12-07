@@ -12,7 +12,7 @@ const Header: React.FC = () => {
           <Link to={'/'} className={styles.btns}>
             Welcome
           </Link>
-          <div className={styles.btns_container}>
+          <div className={[styles.btns_container, styles.auth].join(' ')}>
             <Link to={'/'} className={styles.btns}>
               Sign Out
             </Link>

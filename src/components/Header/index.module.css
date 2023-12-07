@@ -56,3 +56,25 @@
 .switch_ln:active {
   transform: scale(0.9);
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 95%;
+  }
+
+  
+  .btns_container {
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .btns_container {
+    width: 100%;
+  }
+
+  .btns_container.auth {
+    width: 40%;
+  }
+}
