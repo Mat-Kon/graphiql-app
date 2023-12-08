@@ -23,3 +23,14 @@ export interface ISignInFormData {
 export interface IFormMain {
   API: string;
 }
+
+export type InputsLogIn = {
+  email: string;
+  password: string;
+};
+
+export type InputsSignUp = {
+  email: string;
+  password: string;
+  passwordRepeat: string;
+};
