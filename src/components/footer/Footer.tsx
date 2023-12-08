@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
 
 const Footer: React.FC = () => {
-  const {translations, currentLanguage} = useLanguageContext();
+  const { translations, currentLanguage } = useLanguageContext();
 
   return (
     <footer className={styles.footer}>
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-              {translations[currentLanguage].eugenia}
+                {translations[currentLanguage].eugenia}
               </a>
             </li>
             <li className={styles.authors__item}>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-              {translations[currentLanguage].olya}
+                {translations[currentLanguage].olya}
               </a>
             </li>
           </ul>
@@ -50,7 +50,12 @@ const Footer: React.FC = () => {
           <h3>&copy; 2023</h3>
         </div>
 
-        <a href="https://rs.school/" className={styles.rss_link} target="_blank" rel="noreferrer">
+        <a
+          href="https://rs.school/react/"
+          className={styles.rss_link}
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src="assets/icons/rs_school.svg" alt="school icon" width={100} height={50} />
         </a>
       </div>
