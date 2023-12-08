@@ -7,6 +7,11 @@
   --color-orange-glow: #fde9bd;
 }
 
+#root {
+  position: relative;
+  background-color: var(--color-blue-light);
+}
+
 * {
   margin: 0;
   padding: 0;

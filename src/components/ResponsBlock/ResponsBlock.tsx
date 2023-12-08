@@ -1,9 +1,9 @@
-import styles from './answer.module.css';
+import styles from './respons.module.css';
 
 const ResponsBlock = () => {
   return (
-    <div className={styles.answer_container}>
-      <div className={styles.answer}>Response section</div>
+    <div className={styles.resp__container}>
+      <textarea readOnly={true} id={styles.resp__view}></textarea>
     </div>
   );
 };

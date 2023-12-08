@@ -1,0 +1,16 @@
+.resp__container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blue-dard);
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+#resp__view {
+    height: 97%;
+    width: 97%;
+    background-color: var(--color-blue-light);
+    border-radius: 10px;
+}

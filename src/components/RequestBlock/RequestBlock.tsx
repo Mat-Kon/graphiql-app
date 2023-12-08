@@ -1,34 +1,21 @@
-import styles from './main.module.css';
-import { useForm } from 'react-hook-form';
-import { IFormMain } from '../../types/types';
+import RequstBtnsContainer from '../RequstBtnsContainer/RequstBtnsContainer';
+import styles from './request.module.css';
 
 const RequestBlock = () => {
-  const { register } = useForm<IFormMain>({
-    mode: 'onChange',
-  });
   return (
-    <div className={styles.container}>
-      <form className={styles.form}>
-        <label htmlFor="API">
-          <input
-            className={styles.API}
-            type="text"
-            placeholder="Please enter the API"
-            id={'API'}
-            {...register('API', { required: true })}
-          />
-        </label>
-        <label>
-          <textarea className={styles.request}>Here will be requests</textarea>
-        </label>
-        <label>
-          <textarea className={styles.request}>Variables</textarea>
-        </label>
-        <label>
-          <textarea className={styles.request}>Headers</textarea>
-        </label>
-        <input className={styles.submit} type="submit" value={'Send request'} />
-      </form>
+    <div className={styles.req__container}>
+      <div className={styles.req__header}>
+        <textarea id={styles.req__url} rows={1} placeholder="URL"></textarea>
+      </div>
+      <RequstBtnsContainer />
+      <div className={styles.req__editor}></div>
+      <div className={styles.req__heders_variables}>
+        <div>
+          <button>btn</button>
+          <button>btn</button>
+        </div>
+        <div></div>
+      </div>
     </div>
   );
 };

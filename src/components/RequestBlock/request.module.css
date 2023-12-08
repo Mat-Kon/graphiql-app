@@ -1,0 +1,37 @@
+.req__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-blue-dard);
+  border-radius: 10px;
+}
+
+
+.req__header {
+  width: 90%;
+  margin-top: 10px;
+}
+
+#req__url {
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.req__editor {
+  height: 100%;
+  width: 90%;
+  background-color: var(--color-blue-light);
+  border-radius: 10px;
+}
+
+.req__heders_variables {
+  min-height: 5%;
+  width: 90%;
+  background-color: var(--color-blue-light);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
