@@ -42,16 +42,6 @@
   border-bottom: 2px solid var(--color-blue-dard);
 }
 
-.button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  color:var(--color-blue-dard);
-  background-color: var(--color-orange);
-  transition: all 0.5s;
-}
-
 .btns:hover {
   color: var(--color-orange);
   border-bottom: 2px solid var(--color-orange);

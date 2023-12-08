@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
-            <Link to={'/'} className={styles.button} onClick={Out}>
+            <Link to={'/'} className={styles.btns} onClick={Out}>
               {translations[currentLanguage].logout}
             </Link>
             <span className={styles.switch_ln} onClick={changeLanguage}>
