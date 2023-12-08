@@ -8,13 +8,13 @@ import {
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCaFnbdLBV9uzBcxoJusuQuT_08NEYv17U',
-  authDomain: 'graphiql-clone-app-956fe.firebaseapp.com',
-  projectId: 'graphiql-clone-app-956fe',
-  storageBucket: 'graphiql-clone-app-956fe.appspot.com',
-  messagingSenderId: '342771510718',
-  appId: '1:342771510718:web:b606dab22cf865c3291def',
-  measurementId: 'G-2LCM9GPDXV',
+  apiKey: 'AIzaSyC6P35XVI3ubXOO1g50L3zkNF8MD9v2bhM',
+  authDomain: 'final-project-9c3f0.firebaseapp.com',
+  projectId: 'final-project-9c3f0',
+  storageBucket: 'final-project-9c3f0.appspot.com',
+  messagingSenderId: '584414452801',
+  appId: '1:584414452801:web:8321dee6b2da2aa434fac0',
+  measurementId: 'G-8K7M8TS18L',
 };
 
 const app = initializeApp(firebaseConfig);

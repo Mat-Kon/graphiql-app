@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
+import { auth, logout } from '../../utils/Firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Header: React.FC = () => {
-  const isAuth = false;
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
+  // const isAuth = false;
   const { translations, currentLanguage, changeLanguage } = useLanguageContext();
   const [isSticky, setIsSticky] = useState(false);
 
@@ -23,17 +27,26 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const Out = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <header className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}>
-      {isAuth ? (
+      {user ? (
         <div className={styles.wrapper}>
           <Link to={'/'} className={styles.btns}>
             {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
-            <Link to={'/'} className={styles.btns}>
+            <button className={styles.btns} onClick={Out}>
               {translations[currentLanguage].logout}
-            </Link>
+            </button>
+            {/* <Link to={'/'} className={styles.btns}>
+              {translations[currentLanguage].logout}
+            </Link> */}
             <span className={styles.switch_ln} onClick={changeLanguage}>
               {currentLanguage}
             </span>
