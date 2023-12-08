@@ -1,11 +1,10 @@
 import styles from './signup.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { schema } from '../../validation/validation';
-import { IFormData } from '../../types/types';
+import { IFormData, InputsSignUp } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
-
-const error: SubmitErrorHandler<IFormData> = (data) => console.log(data);
+import { registerWithEmailAndPassword } from '../../utils/Firebase';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -18,15 +17,16 @@ const SignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<IFormData> = (data) => {
-    console.log(data);
-    navigate('/');
+  const submitHandler: SubmitHandler<InputsSignUp> = (data) => {
+    const { email, password } = data;
+    registerWithEmailAndPassword(email, password);
+    navigate('/main');
   };
 
   return (
     <>
       <div className={styles.container}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit, error)}>
+        <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
           <h1 className={styles.title}> Please sign up:</h1>
           <label htmlFor="email">
             <input

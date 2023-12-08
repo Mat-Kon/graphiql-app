@@ -1,12 +1,12 @@
 import styles from './signin.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { schemaSignIn } from '../../validation/validation';
 import { ISignInFormData } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
-
-const error: SubmitErrorHandler<ISignInFormData> = (data) => console.log(data);
+import { logInWithEmailAndPassword } from '../../utils/Firebase';
+import { InputsLogIn } from '../../types/types';
 
 const SignIn = () => {
   const { translations, currentLanguage } = useLanguageContext();
@@ -20,16 +20,18 @@ const SignIn = () => {
     resolver: yupResolver(schemaSignIn),
   });
 
-  const onSubmit: SubmitHandler<ISignInFormData> = (data) => {
+  const submitHandler: SubmitHandler<InputsLogIn> = (data) => {
+    const { email, password } = data;
     console.log(data);
-    navigate('/');
+    logInWithEmailAndPassword(email, password);
+    navigate('/main');
   };
 
   return (
     <>
       <div className={styles.container}>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit, error)}>
-          <h1 className={styles.title}> {translations[currentLanguage].login}:</h1>
+        <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
+          <h1 className={styles.title}> Log in:</h1>
           <label htmlFor="email">
             <input
               className={styles.input}
