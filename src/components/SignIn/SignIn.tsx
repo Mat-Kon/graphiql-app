@@ -4,10 +4,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { schemaSignIn } from '../../validation/validation';
 import { ISignInFormData } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
+import { useLanguageContext } from '../../utils/hooks/useLangContext';
 import { logInWithEmailAndPassword } from '../../utils/Firebase';
 import { InputsLogIn } from '../../types/types';
 
 const SignIn = () => {
+  const { translations, currentLanguage } = useLanguageContext();
   const navigate = useNavigate();
   const {
     register,
@@ -34,7 +36,7 @@ const SignIn = () => {
             <input
               className={styles.input}
               type="text"
-              placeholder="Email"
+              placeholder={translations[currentLanguage].email}
               id={'email'}
               {...register('email', { required: true })}
               autoComplete="email"
@@ -46,12 +48,17 @@ const SignIn = () => {
               className={styles.input}
               type="text"
               id={'password'}
-              placeholder="Password"
+              placeholder={translations[currentLanguage].password}
               {...register('password', { required: true })}
             />
             {errors.password ? <p className={styles.error}>{errors.password.message}</p> : null}
           </label>
-          <input className={styles.submit} type="submit" value={'Submit'} disabled={!isValid} />
+          <input
+            className={styles.submit}
+            type="submit"
+            value={translations[currentLanguage].submit}
+            disabled={!isValid}
+          />
         </form>
       </div>
     </>

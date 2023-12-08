@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './index.module.css';
+import { useLanguageContext } from '../../utils/hooks/useLangContext';
 
 const Footer: React.FC = () => {
+  const {translations, currentLanguage} = useLanguageContext();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
@@ -9,8 +12,13 @@ const Footer: React.FC = () => {
           <ul className={styles.authors__list}>
             <li className={styles.authors__item}>
               <img src="assets/icons/github-logo.png" alt="github logo" width={25} height={25} />
-              <a href="https://github.com/Mat-Kon" className={styles.authors__link} target="_blank">
-                Konstantin
+              <a
+                href="https://github.com/Mat-Kon"
+                className={styles.authors__link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {translations[currentLanguage].konstantin}
               </a>
             </li>
             <li className={styles.authors__item}>
@@ -19,8 +27,9 @@ const Footer: React.FC = () => {
                 href="https://github.com/iozefavichus"
                 className={styles.authors__link}
                 target="_blank"
+                rel="noreferrer"
               >
-                Eugenia
+              {translations[currentLanguage].eugenia}
               </a>
             </li>
             <li className={styles.authors__item}>
@@ -29,8 +38,9 @@ const Footer: React.FC = () => {
                 href="https://github.com/lustrochka"
                 className={styles.authors__link}
                 target="_blank"
+                rel="noreferrer"
               >
-                Olya
+              {translations[currentLanguage].olya}
               </a>
             </li>
           </ul>
@@ -40,7 +50,7 @@ const Footer: React.FC = () => {
           <h3>&copy; 2023</h3>
         </div>
 
-        <a href="https://rs.school/" className={styles.rss_link} target="_blank">
+        <a href="https://rs.school/" className={styles.rss_link} target="_blank" rel="noreferrer">
           <img src="assets/icons/rs_school.svg" alt="school icon" width={100} height={50} />
         </a>
       </div>

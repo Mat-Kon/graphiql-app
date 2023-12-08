@@ -6,15 +6,14 @@
   align-items: center;
 }
 
-
-
 .footer {
   justify-content: center;
   width: 100%;
-  min-height: 20vh;
+  min-height: 10vh;
   font-size: 20px;
   color: var(--color-white);
   background-color: var(--color-blue-dard);
+  border-top: 2px solid var(--color-blue-light);
 }
 
 .wrapper {
@@ -42,10 +41,12 @@
   color: var(--color-white);
   text-decoration: none;
   transition: all 0.5s;
+  border-bottom: 2px solid var(--color-blue-dard);
 }
 
 .authors__link:hover {
   color: var(--color-orange);
+  border-bottom: 2px solid var(--color-orange);
 }
 
 .year {
@@ -53,6 +54,8 @@
 }
 
 .rss_link {
+  display: flex;
+  align-items: center;
   transition: all 0.5s;
 }
 
@@ -64,15 +67,15 @@
   .wrapper {
     width: 90%;
   }
-
-  .authors__list {
-    flex-direction: column;
-  }
 }
 
 @media screen and (max-width: 768px) {
   .wrapper {
     width: 100%;
+  }
+
+  .authors__list {
+    flex-direction: column;
   }
 }
 

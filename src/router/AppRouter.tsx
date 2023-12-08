@@ -12,14 +12,8 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<WelcomePage />} />
       <Route path="auth" element={<AuthPage />} />
-      <Route
-        path="main"
-        element={
-          <ProtectedRoute user={CheckAuth}>
-            <Main />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="regitstartion" element={<p>Registartion</p>} />
+      <Route path="main" element={<MainPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
