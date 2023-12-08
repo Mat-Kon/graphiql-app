@@ -9,7 +9,10 @@
     "submit": "Submit",
     "konstantin": "Konstantin",
     "eugenia": "Eugenia",
-    "olya": "Olya"
+    "olya": "Olya",
+    "main": "Main",
+    "paragraph1": "This project is made as part of a course on studying React from the RS School. RS School is free-of-charge and community-based education program conducted by The Rolling Scopes developer community.",
+    "paragraph2": "Links to our githubs you can find further down the page."
   },
   "ru": {
     "login": "Вход",
@@ -21,6 +24,9 @@
     "submit": "Отправить",
     "konstantin": "Константин",
     "eugenia": "Евгения",
-    "olya": "Оля"
+    "olya": "Оля",
+    "main": "Главная",
+    "paragraph1": "Этот проект сделан в рамках курса по изучению React от RS School. RS School — это бесплатная общественная образовательная программа, проводимая сообществом разработчиков The Rolling Scopes.",
+    "paragraph2": "Ссылки на наши страницы Github вы можете найти внизу страницы."
   }
 }
