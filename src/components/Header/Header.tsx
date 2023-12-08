@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
 import { auth, logout } from '../../utils/Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  // const isAuth = false;
   const { translations, currentLanguage, changeLanguage } = useLanguageContext();
   const [isSticky, setIsSticky] = useState(false);
 
@@ -30,7 +28,6 @@ const Header: React.FC = () => {
 
   const Out = () => {
     logout();
-    navigate('/');
   };
 
   return (
@@ -41,9 +38,9 @@ const Header: React.FC = () => {
             {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
-            <button className={styles.button} onClick={Out}>
+            <Link to={'/'} className={styles.button} onClick={Out}>
               {translations[currentLanguage].logout}
-            </button>
+            </Link>
             <span className={styles.switch_ln} onClick={changeLanguage}>
               {currentLanguage}
             </span>
