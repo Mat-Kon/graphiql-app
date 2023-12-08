@@ -72,3 +72,9 @@
         font-size: 22px;
     }
 }
+
+@media (max-width: 345px) {
+    .button {
+        width: 100%;
+    }
+}
