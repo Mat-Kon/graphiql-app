@@ -1,6 +1,6 @@
 import styles from './answer.module.css';
 
-const Answer = () => {
+const ResponsBlock = () => {
   return (
     <div className={styles.answer_container}>
       <div className={styles.answer}>Response section</div>
@@ -8,4 +8,4 @@ const Answer = () => {
   );
 };
 
-export default Answer;
+export default ResponsBlock;

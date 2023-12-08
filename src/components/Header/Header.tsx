@@ -7,6 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Header: React.FC = () => {
   const [user] = useAuthState(auth);
+  console.log(user);
   const { translations, currentLanguage, changeLanguage } = useLanguageContext();
   const [isSticky, setIsSticky] = useState(false);
 

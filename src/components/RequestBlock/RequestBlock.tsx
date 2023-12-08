@@ -2,7 +2,7 @@ import styles from './main.module.css';
 import { useForm } from 'react-hook-form';
 import { IFormMain } from '../../types/types';
 
-const Main = () => {
+const RequestBlock = () => {
   const { register } = useForm<IFormMain>({
     mode: 'onChange',
   });
@@ -33,4 +33,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default RequestBlock;
