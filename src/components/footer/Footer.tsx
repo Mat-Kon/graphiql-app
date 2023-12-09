@@ -50,7 +50,12 @@ const Footer: React.FC = () => {
           <h3>&copy; 2023</h3>
         </div>
 
-        <a href="https://rs.school/" className={styles.rss_link} target="_blank" rel="noreferrer">
+        <a
+          href="https://rs.school/react/"
+          className={styles.rss_link}
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src="assets/icons/rs_school.svg" alt="school icon" width={100} height={50} />
         </a>
       </div>
