@@ -11,6 +11,34 @@ const WelcomePage = () => {
         <h1 className={styles.title}>{translations[currentLanguage].welcome}</h1>
         <p className={styles.paragraph}>{translations[currentLanguage].paragraph1}</p>
         <p className={styles.paragraph}>{translations[currentLanguage].paragraph2}</p>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <p className={styles.name}>{translations[currentLanguage].konstantin} (@mat-kon)</p>
+            <ul className={styles.description}>
+              <li>{translations[currentLanguage].line1}</li>
+              <li>{translations[currentLanguage].line2}</li>
+              <li>{translations[currentLanguage].line3}</li>
+              <li>{translations[currentLanguage].line4}</li>
+            </ul>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.name}>{translations[currentLanguage].eugenia} (@iozefavichus)</p>
+            <ul className={styles.description}>
+              <li>{translations[currentLanguage].line5}</li>
+              <li>{translations[currentLanguage].line6}</li>
+              <li>{translations[currentLanguage].line7}</li>
+              <li>{translations[currentLanguage].line8}</li>
+            </ul>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.name}>{translations[currentLanguage].olya} (@lustrochka)</p>
+            <ul className={styles.description}>
+              <li>{translations[currentLanguage].line9}</li>
+              <li>{translations[currentLanguage].line10}</li>
+              <li>{translations[currentLanguage].line11}</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className={styles.buttons}>
         {isAuth ? (
