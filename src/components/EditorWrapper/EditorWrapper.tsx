@@ -1,44 +1,31 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import styles from './index.module.css';
-import { useCodeMirror } from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
-import { nord } from '@uiw/codemirror-theme-nord';
-// import { historyField } from '@codemirror/commands';
+import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/mode-graphqlschema';
+import 'ace-builds/src-noconflict/theme-xcode';
+import 'ace-builds/src-noconflict/ext-language_tools';
 
-// const stateFields = { history: historyField };
-const extensions = [javascript()];
+const DEAFAULT_VALUE = 'Hello!\n{\n  query{\n    name\n  }\n}';
 
 const EditorWrapper: React.FC = () => {
-  // const serializedState = localStorage.getItem('myEditorState') || '';
-  const [value, setValue] = useState('');
-  const editor = useRef(null);
-
-  const { setContainer } = useCodeMirror({
-    container: editor.current,
-    extensions,
-    height: '100%',
-    minWidth: '100%',
-    theme: nord,
-    value: value,
-    onChange: setValue,
-    style: {
-      borderRadius: '20px',
-    },
-    // initialState: {
-    //   json: JSON.parse(serializedState),
-    //   fields: stateFields
-    // }
-  });
-
-  useEffect(() => {
-    if (editor.current) {
-      setContainer(editor.current);
-    }
-  }, [editor.current]);
-
   return (
     <div className={styles.editor_wrapper}>
-      <div id={styles.editor} ref={editor} />
+      <AceEditor
+        className={styles.editor}
+        name="editor"
+        height="100%"
+        width="100%"
+        mode="graphqlschema"
+        theme="xcode"
+        defaultValue={DEAFAULT_VALUE}
+        fontSize={14}
+        showGutter={true}
+        highlightActiveLine={true}
+        tabSize={2}
+        enableBasicAutocompletion={true}
+        enableLiveAutocompletion={true}
+        enableSnippets={true}
+      />
     </div>
   );
 };
