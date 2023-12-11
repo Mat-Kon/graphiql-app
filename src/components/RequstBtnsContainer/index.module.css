@@ -1,0 +1,8 @@
+.btns_container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--color-blue-light);
+}
