@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import styles from './docs.module.css';
 
+const ENDPOINT = 'https://rickandmortyapi.com/'; // for first time
+
+export const QueryData = async () => {
+  const response = await fetch(ENDPOINT);
+  const data = await response.json();
+  console.log(data.__schema.types);
+  return data.data;
+};
+
 const Docs = () => {
+  QueryData();
   const [isOpen, setOpen] = useState(false);
 
   return isOpen ? (
