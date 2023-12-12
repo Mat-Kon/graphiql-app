@@ -1,6 +1,6 @@
 import { object, string } from 'yup';
 
-const PASS_REG: RegExp = /^(?=.*[a-z][A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+const PASS_REG: RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[\p{L}\p{N}\p{P}]{8,}$/u;
 const EMAIL_REG: RegExp = /[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+/;
 
 export const schema = object({
