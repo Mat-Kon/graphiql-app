@@ -1,3 +1,4 @@
+import EditorWrapper from '../EditorWrapper/EditorWrapper';
 import RequstBtnsContainer from '../RequstBtnsContainer/RequstBtnsContainer';
 import styles from './request.module.css';
 
@@ -8,7 +9,7 @@ const RequestBlock = () => {
         <textarea id={styles.req__url} rows={1} placeholder="URL"></textarea>
       </div>
       <RequstBtnsContainer />
-      <div className={styles.req__editor}></div>
+      <EditorWrapper />
       <div className={styles.req__heders_variables}>
         <div>
           <button>btn</button>
