@@ -3,7 +3,6 @@ import Layout from '../pages/Layout/Layout';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
-// import CheckAuth from '../components/CheckAuth/CheckAuth';
 import RegistrationPage from '../pages/Registration/Registration';
 import MainPage from '../pages/MainPage/MainPage';
 
