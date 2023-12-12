@@ -5,6 +5,7 @@ import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import RegistrationPage from '../pages/Registration/Registration';
 import MainPage from '../pages/MainPage/MainPage';
+import PrivateRoute from '../pages/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,9 +30,11 @@ const router = createBrowserRouter(
       <Route
         path="main"
         element={
-          <Layout>
-            <MainPage />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <MainPage />
+            </Layout>
+          </PrivateRoute>
         }
       />
       <Route path="*" element={<NotFoundPage />} />

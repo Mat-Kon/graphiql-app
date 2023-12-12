@@ -6,6 +6,7 @@
     "signup": "Sign up",
     "email": "Email",
     "password": "Password",
+    "rePassword": "Repeat password",
     "submit": "Submit",
     "konstantin": "Konstantin",
     "eugenia": "Eugenia",
@@ -15,7 +16,7 @@
     "paragraph2": "Our team:",
     "notfound": "Page not found",
     "try": "Try this:",
-    "text404": "Go to main",
+    "text404": "Go to welcome",
     "line1": "Main page",
     "line2": "Request editor",
     "line3": "Response section",
@@ -26,7 +27,9 @@
     "line8": "Documentation explorer",
     "line9": "Welcome page and 404 page",
     "line10": "API endpoints",
-    "line11": "Variables and headers editors"
+    "line11": "Variables and headers editors",
+    "setBtn": "Set API",
+    "requestBtn": "Request"
   },
   "ru": {
     "login": "Вход",
@@ -35,6 +38,7 @@
     "signup": "Регистрация",
     "email": "Почта",
     "password": "Пароль",
+    "rePassword": "Повторите пароль",
     "submit": "Отправить",
     "konstantin": "Константин",
     "eugenia": "Евгения",
@@ -44,7 +48,7 @@
     "paragraph2": "Наша команда:",
     "notfound": "Страница не найдена",
     "try": "Попробуйте это:",
-    "text404": "На главную",
+    "text404": "Приветствуем",
     "line1": "Главная страница",
     "line2": "Редактор запросов",
     "line3": "Раздел ответов",
@@ -55,6 +59,8 @@
     "line8": "Секция документации",
     "line9": "Страница приветствия и страница 404",
     "line10": "API эндпойнты",
-    "line11": "Редакторы переменных и заголовков"
+    "line11": "Редакторы переменных и заголовков",
+    "setBtn": "Установить API",
+    "requestBtn": "Запрос"
   }
 }

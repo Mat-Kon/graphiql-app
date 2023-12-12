@@ -5,7 +5,7 @@ interface GraphQLRequestBody {
 }
 
 //base url will get from local storage
-const BASE_URL = 'https://swapi-graphql.netlify.app/.netlify/functions/index';
+const BASE_URL = 'https://rickandmortyapi.com/graphql';
 
 const defaultRequestBody: GraphQLRequestBody = {
   query: `
