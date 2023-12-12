@@ -31,7 +31,7 @@ const SignIn = () => {
     <>
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
-          <h1 className={styles.title}> Log in:</h1>
+          <h1 className={styles.title}> {translations[currentLanguage].login}:</h1>
           <label htmlFor="email">
             <input
               className={styles.input}
