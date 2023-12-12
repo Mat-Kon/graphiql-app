@@ -1,9 +1,14 @@
 import { object, string } from 'yup';
 
-const PASS_REG: RegExp = /^(?=.*[a-z][A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+const PASS_REG: RegExp =
+  /^(?=.*\d)(?=.*[@$!%*#?&])[\p{L}\p{M}\p{N}\p{P}\p{S}\p{Z}\p{C}\p{Emoji}]{8,}$/u;
+const EMAIL_REG: RegExp = /[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+/;
 
 export const schema = object({
-  email: string().email('Use the correct email').required('Email is required'),
+  email: string()
+    .email('Use the correct email')
+    .required('Email is required')
+    .matches(EMAIL_REG, 'The email should be like xxx@xxxx.xxx'),
   password: string()
     .required('Password is required')
     .matches(
