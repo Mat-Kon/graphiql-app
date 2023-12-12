@@ -9,11 +9,32 @@ import MainPage from '../pages/MainPage/MainPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/" element={null}>
       <Route index element={<WelcomePage />} />
-      <Route path="auth" element={<AuthPage />} />
-      <Route path="regitstartion" element={<RegistrationPage />} />
-      <Route path="main" element={<MainPage />} />
+      <Route
+        path="auth"
+        element={
+          <Layout>
+            <AuthPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="regitstartion"
+        element={
+          <Layout>
+            <RegistrationPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="main"
+        element={
+          <Layout>
+            <MainPage />
+          </Layout>
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
