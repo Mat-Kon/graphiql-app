@@ -4,8 +4,7 @@ interface GraphQLRequestBody {
   query: string;
 }
 
-//base url will get from local storage
-const BASE_URL = 'https://rickandmortyapi.com/graphql';
+const BASE_URL = localStorage.getItem('url') || '';
 
 const defaultRequestBody: GraphQLRequestBody = {
   query: `
