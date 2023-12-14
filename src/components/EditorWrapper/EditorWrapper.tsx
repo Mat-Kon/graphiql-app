@@ -24,28 +24,32 @@ const EditorWrapper: React.FC = () => {
   const showData = async () => {
     //query
     const query = `
-    query {
-      characters {
-        results {
-          id
+    query IntrospectionQuery {
+      __schema {
+        types {
           name
-          status
-          species
-          type
-          gender
-          origin {
-            id
+          kind
+          description
+          fields {
             name
+            description
+            args {
+              name
+              description
+              type {
+                kind
+                name
+                ofType {
+                  kind
+                  name
+                }
+              }
+            }
           }
-          location {
-            id
-            name
-          }
-          image
         }
       }
     }
-    `;
+  `;
 
     try {
       const resp = await fetch('https://rickandmortyapi.com/graphql', {
