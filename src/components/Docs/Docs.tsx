@@ -3,15 +3,24 @@ import styles from './docs.module.css';
 
 const ENDPOINT = 'https://rickandmortyapi.com/'; // for first time
 
-export const QueryData = async () => {
-  const response = await fetch(ENDPOINT);
+const query = 'query{__schema}';
+
+export const getIntrospectionQueryData = async () => {
+  const response = await fetch(ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query,
+    }),
+  });
   const data = await response.json();
-  console.log(data.__schema.types);
   return data.data;
 };
 
 const Docs = () => {
-  QueryData();
+  getIntrospectionQueryData();
   const [isOpen, setOpen] = useState(false);
 
   return isOpen ? (
