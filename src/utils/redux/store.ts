@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { curApi } from '../api/api';
+import loadingSlice from './loadingSlice';
 
 const rootReduser = combineReducers({
+  loading: loadingSlice,
   [curApi.reducerPath]: curApi.reducer,
 });
 
