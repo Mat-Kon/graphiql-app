@@ -1,15 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { curApi } from '../api/api';
+import loadingSlice from './loadingSlice';
 
 const rootReduser = combineReducers({
-  [curApi.reducerPath]: curApi.reducer,
+  loading: loadingSlice,
 });
 
 const store = configureStore({
   reducer: rootReduser,
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(curApi.middleware);
-  },
 });
 
 export { store };

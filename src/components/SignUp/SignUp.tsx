@@ -19,9 +19,10 @@ const SignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const submitHandler: SubmitHandler<InputsSignUp> = (data) => {
+  const submitHandler: SubmitHandler<InputsSignUp> = async (data) => {
     const { email, password } = data;
     registerWithEmailAndPassword(email, password);
+    console.error('Registartion is not correct');
     navigate('/main');
   };
 
