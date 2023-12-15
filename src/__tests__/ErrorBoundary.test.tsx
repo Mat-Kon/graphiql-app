@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
-describe('ErrorBoundary component', () => {
+describe('ErrorBoundary', () => {
   it('renders children when no error is thrown', () => {
     const ChildComponent = () => <div>Child component</div>;
 

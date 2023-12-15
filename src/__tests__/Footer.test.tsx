@@ -15,7 +15,7 @@ jest.mock('../utils/hooks/useLangContext', () => ({
   }),
 }));
 
-describe('Footer component', () => {
+describe('Footer', () => {
   it('renders correctly links', () => {
     const { getByText } = render(<Footer />);
 

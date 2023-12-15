@@ -22,7 +22,7 @@ jest.mock('react-firebase-hooks/auth', () => ({
   useAuthState: jest.fn(() => [null]),
 }));
 
-describe('Header component', () => {
+describe('Header', () => {
   beforeEach(() => {
     cleanup();
   });

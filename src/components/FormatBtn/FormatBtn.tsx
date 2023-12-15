@@ -1,4 +1,9 @@
-const PrettyBtn: React.FC = () => {
+interface Props {
+  content: string;
+  className: string;
+}
+
+const FormatBtn: React.FC<Props> = ({ content, className }) => {
   // const formatGraphQLQuery = (query) => {
   //   const prettifiedQuery = query
   //     .replace(/\s+/g, ' ')
@@ -15,7 +20,7 @@ const PrettyBtn: React.FC = () => {
   //   }
   // `;
 
-  return <button>PrettyQL</button>;
+  return <button className={className}>{content}</button>;
 };
 
-export default PrettyBtn;
+export default FormatBtn;
