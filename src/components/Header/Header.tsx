@@ -31,7 +31,10 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}>
+    <header
+      className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}
+      data-testid="sticky-header"
+    >
       {user ? (
         <div className={styles.wrapper}>
           <Link to={'/'} className={styles.btns}>
