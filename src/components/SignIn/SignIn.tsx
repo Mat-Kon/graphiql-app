@@ -22,7 +22,6 @@ const SignIn = () => {
 
   const submitHandler: SubmitHandler<InputsLogIn> = (data) => {
     const { email, password } = data;
-    console.log(data);
     logInWithEmailAndPassword(email, password);
     navigate('/main');
   };
