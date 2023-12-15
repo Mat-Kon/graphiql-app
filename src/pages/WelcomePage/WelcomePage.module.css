@@ -7,7 +7,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
     font-size: 20px;
     color: var(--color-white);
     background-color: var(--color-blue-dard);
@@ -48,10 +48,10 @@ li {
 }
 
 .buttons {
-    position: absolute;
-    right: 15%;
-    top: 70px;
     display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
     gap: 15px;
 }
 
@@ -60,7 +60,7 @@ li {
     text-decoration: none;
     font-size: 20px;
     transition: 0.5s;
-    border-bottom: 2px solid var(--color-white);
+    border-bottom: 2px solid var(--color-blue-dard);
 }
 
 .link:hover {
