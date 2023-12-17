@@ -8,11 +8,6 @@
     border-radius: 10px;
 }
 
-#resp__view {
-    height: 97%;
-    width: 97%;
-    padding: 15px;
-    color: var(--color-white);
-    background-color: var(--color-blue-light);
+.resp__view {
     border-radius: 10px;
 }
