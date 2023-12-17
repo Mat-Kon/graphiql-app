@@ -11,6 +11,8 @@
 #resp__view {
     height: 97%;
     width: 97%;
+    padding: 15px;
+    color: var(--color-white);
     background-color: var(--color-blue-light);
     border-radius: 10px;
 }

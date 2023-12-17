@@ -11,9 +11,9 @@ const RegistrationPage = () => {
 
   useEffect(() => {
     if (user) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       navigate('/main');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (

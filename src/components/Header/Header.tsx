@@ -26,19 +26,18 @@ const Header: React.FC = () => {
     };
   }, [user]);
 
-  const Out = () => {
-    logout();
-  };
-
   return (
-    <header className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}>
+    <header
+      className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}
+      data-testid="sticky-header"
+    >
       {user ? (
         <div className={styles.wrapper}>
           <Link to={'/'} className={styles.btns}>
             {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
-            <Link to={'/'} className={styles.btns} onClick={Out}>
+            <Link to={'/'} className={styles.btns} onClick={logout}>
               {translations[currentLanguage].logout}
             </Link>
             <span className={styles.switch_ln} onClick={changeLanguage}>

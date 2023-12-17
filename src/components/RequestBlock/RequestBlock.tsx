@@ -4,7 +4,8 @@ import { useState } from 'react';
 import styles from './request.module.css';
 
 const RequestBlock = () => {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState(localStorage.getItem('url') ?? '');
+
   return (
     <div className={styles.req__container}>
       <div className={styles.req__header}>
@@ -16,11 +17,12 @@ const RequestBlock = () => {
           onChange={(e) => {
             setUrl(e.target.value);
           }}
+          data-testid="url-textarea"
         ></textarea>
       </div>
       <RequstBtnsContainer url={url} />
       <EditorWrapper />
-      <div className={styles.req__heders_variables}>
+      <div className={styles.req__heders_variables} data-testid="var-container">
         <div>
           <button>btn</button>
           <button>btn</button>
