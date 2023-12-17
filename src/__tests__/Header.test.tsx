@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { cleanup, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Header from '../components/Header/Header';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -7,8 +7,6 @@ jest.mock('../utils/hooks/useLangContext', () => ({
   useLanguageContext: () => ({
     translations: {
       en: {
-        welcome: 'Welcome',
-        logout: 'Logout',
         login: 'Login',
         signup: 'Signup',
       },
@@ -18,15 +16,7 @@ jest.mock('../utils/hooks/useLangContext', () => ({
   }),
 }));
 
-jest.mock('react-firebase-hooks/auth', () => ({
-  useAuthState: jest.fn(() => [null]),
-}));
-
 describe('Header', () => {
-  beforeEach(() => {
-    cleanup();
-  });
-
   it('renders login and signup links when user is not logged in', () => {
     render(
       <MemoryRouter>

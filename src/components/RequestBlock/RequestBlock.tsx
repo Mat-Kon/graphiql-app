@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './request.module.css';
 
 const RequestBlock = () => {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState(localStorage.getItem('url') ?? '');
 
   return (
     <div className={styles.req__container}>

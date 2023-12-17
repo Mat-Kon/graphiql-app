@@ -1,79 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from './index.module.css';
 import ace from 'ace-builds';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-graphqlschema';
 import 'ace-builds/src-noconflict/theme-xcode';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import { useAppDispatch } from '../../utils/hooks/reduxHooks';
+import { setQuery } from '../../utils/redux/querySlice';
 ace.config.set('basePath', '/node_modules/ace-builds/src-min-noconflict');
 
-const DEAFAULT_VALUE = 'Hello!\n{\n  query{\n    name\n  }\n}';
+const DEAFAULT_VALUE = `There should only be a query. Remove this line 
+query {
+  character(id: ID) {
+    name
+  }
+}
+`;
 
 const EditorWrapper: React.FC = () => {
   const refEditor = useRef<AceEditor>(null);
-  const [data, setData] = useState<unknown | null>(null);
-
-  // const { setloader } = useLoading();
-  //get base url
-  //get query
-  useEffect(() => {
-    showData();
-    console.log(data);
-  }, []);
-
-  const showData = async () => {
-    //query
-    const query = `
-    query IntrospectionQuery {
-      __schema {
-        types {
-          name
-          kind
-          description
-          fields {
-            name
-            description
-            args {
-              name
-              description
-              type {
-                kind
-                name
-                ofType {
-                  kind
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
-    try {
-      const resp = await fetch('https://rickandmortyapi.com/graphql', {
-        // <-- base url
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          query,
-        }),
-      });
-      const data = await resp.json();
-      setData(data);
-    } catch {
-      console.error('error');
-    }
-  };
+  const dispatch = useAppDispatch();
 
   const handlerEditor = () => {
     if (refEditor.current) {
-      const code = refEditor.current.editor.getValue();
-      console.log(code);
+      const newQuery = refEditor.current.editor.getValue();
+      dispatch(setQuery(newQuery));
     }
   };
 

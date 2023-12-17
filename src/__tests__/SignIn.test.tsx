@@ -6,10 +6,6 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
-jest.mock('../utils/Firebase', () => ({
-  logInWithEmailAndPassword: jest.fn(),
-}));
-
 jest.mock('../utils/hooks/useLangContext', () => ({
   useLanguageContext: () => ({
     translations: {

@@ -26,10 +26,6 @@ const Header: React.FC = () => {
     };
   }, [user]);
 
-  const Out = () => {
-    logout();
-  };
-
   return (
     <header
       className={isSticky ? styles.header : [styles.header, styles.sticky].join(' ')}
@@ -41,7 +37,7 @@ const Header: React.FC = () => {
             {translations[currentLanguage].welcome}
           </Link>
           <div className={[styles.btns_container, styles.auth].join(' ')}>
-            <Link to={'/'} className={styles.btns} onClick={Out}>
+            <Link to={'/'} className={styles.btns} onClick={logout}>
               {translations[currentLanguage].logout}
             </Link>
             <span className={styles.switch_ln} onClick={changeLanguage}>
