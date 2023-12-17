@@ -20,6 +20,10 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
   };
 
   const showData = async (url: string, query: string) => {
+    if (!url || url === '') {
+      dispatch(setRespons('You need to specify the endpoint in the url'));
+    }
+
     try {
       dispatch(setloading(true));
       const resp = await fetch(url, {
