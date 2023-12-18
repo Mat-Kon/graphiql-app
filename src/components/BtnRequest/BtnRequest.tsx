@@ -38,8 +38,9 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
       });
       const data = await resp.json();
       dispatch(setRespons(data));
-    } catch {
+    } catch (error) {
       console.error('error');
+      dispatch(setRespons(error));
     } finally {
       dispatch(setloading(false));
     }

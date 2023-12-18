@@ -1,26 +1,44 @@
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
+import { setPrrettified } from '../../utils/redux/prettifiedSlice';
+
 interface Props {
   content: string;
   className: string;
 }
 
 const FormatBtn: React.FC<Props> = ({ content, className }) => {
-  // const formatGraphQLQuery = (query) => {
-  //   const prettifiedQuery = query
-  //     .replace(/\s+/g, ' ')
-  //     .replace(/({|}|,)/g, '$1\n')
-  //     .replace(/\s*:\s*/g, ': ');
+  const query = useAppSelector((store) => store.quary.query);
+  const dispatch = useAppDispatch();
 
-  //   return prettifiedQuery;
-  // };
+  const formatGraphQLQuery = () => {
+    let prettifiedQuery = '';
 
-  // // Пример использования
-  // const unformattedQuery = `
-  //   {
-  //     user(id: 1){name, age}
-  //   }
-  // `;
+    const lines = query.split(/({|})/);
+    let indentationLevel = 0;
 
-  return <button className={className}>{content}</button>;
+    lines.forEach((line) => {
+      let formattedLine = line.trim();
+      if (line === '{') {
+        indentationLevel++;
+        formattedLine = `\n${'  '.repeat(indentationLevel - 1)}{`;
+      } else if (line === '}') {
+        formattedLine = `\n${'  '.repeat(indentationLevel - 1)}}`;
+        indentationLevel--;
+      } else if (formattedLine !== '') {
+        formattedLine = `\n${'  '.repeat(indentationLevel)}${formattedLine}`;
+      }
+
+      prettifiedQuery += formattedLine;
+    });
+
+    dispatch(setPrrettified(prettifiedQuery));
+  };
+
+  return (
+    <button className={className} onClick={formatGraphQLQuery}>
+      {content}
+    </button>
+  );
 };
 
 export default FormatBtn;
