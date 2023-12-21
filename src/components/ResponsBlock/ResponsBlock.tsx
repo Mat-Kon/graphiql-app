@@ -32,7 +32,6 @@ const ResponsBlock = () => {
         theme="xcode"
         fontSize={14}
       />
-      {/* <textarea readOnly={true} id={styles.resp__view} value={curValue}></textarea> */}
     </div>
   );
 };
