@@ -20,7 +20,7 @@ const ResponsBlock = () => {
   }, [respons]);
 
   return (
-    <div className={styles.resp__container}>
+    <div className={styles.resp__container} data-testid="response-block">
       <AceEditor
         value={curValue}
         className={styles.resp__view}
