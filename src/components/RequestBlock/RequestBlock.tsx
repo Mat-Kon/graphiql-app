@@ -9,16 +9,16 @@ const RequestBlock = () => {
   return (
     <div className={styles.req__container}>
       <div className={styles.req__header}>
-        <textarea
+        <input
+          type="text"
           id={styles.req__url}
-          rows={1}
           placeholder="URL"
           value={url}
           onChange={(e) => {
             setUrl(e.target.value);
           }}
           data-testid="url-textarea"
-        ></textarea>
+        ></input>
       </div>
       <RequstBtnsContainer url={url} />
       <EditorWrapper />

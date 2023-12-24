@@ -11,3 +11,16 @@
 .resp__view {
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1000px) {
+    .resp__container {
+        width: 94%;
+        margin: auto;
+        min-height: 200px;
+    }
+
+    .resp__view {
+        width: 90%;
+        min-height: 190px;
+    }
+}
