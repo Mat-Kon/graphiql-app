@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../utils/redux/store';
 import styles from './index.module.css';
 import ace from 'ace-builds';
 import AceEditor from 'react-ace';
@@ -16,9 +18,16 @@ const EditorWrapper: React.FC = () => {
   // const { setloader } = useLoading();
   //get base url
   //get query
+  const varsString = useSelector((state: RootState) => state.variables.variables);
+  let variables: object;
+  try {
+    variables = JSON.parse(varsString);
+  } catch {
+    variables = {};
+  }
   useEffect(() => {
     showData();
-    console.log(data);
+    console.log(data, variables);
   }, []);
 
   const showData = async () => {

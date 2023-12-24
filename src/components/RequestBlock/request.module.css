@@ -21,11 +21,3 @@
   padding: 5px;
   border-radius: 10px;
 }
-
-.req__heders_variables {
-  min-height: 5%;
-  width: 90%;
-  background-color: var(--color-blue-light);
-  border-radius: 10px;
-  margin-bottom: 10px;
-}

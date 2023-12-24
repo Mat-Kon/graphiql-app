@@ -29,7 +29,9 @@
     "line10": "API endpoints",
     "line11": "Variables and headers editors",
     "setBtn": "Set API",
-    "requestBtn": "Request"
+    "requestBtn": "Request",
+    "variables": "Variables",
+    "headers": "Headers"
   },
   "ru": {
     "login": "Вход",
@@ -61,6 +63,8 @@
     "line10": "API эндпойнты",
     "line11": "Редакторы переменных и заголовков",
     "setBtn": "Установить API",
-    "requestBtn": "Запрос"
+    "requestBtn": "Запрос",
+    "variables": "Переменные",
+    "headers": "Заголовки"
   }
 }

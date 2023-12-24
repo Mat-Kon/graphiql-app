@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import loadingSlice from './loadingSlice';
+import variablesSlice from './variablesSlice';
 
 const rootReduser = combineReducers({
   loading: loadingSlice,
+  variables: variablesSlice,
 });
 
 const store = configureStore({

@@ -1,0 +1,36 @@
+.headers_variables {
+    min-height: 5%;
+    width: 90%;
+    background-color: var(--color-blue-light);
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .headers_variables__button {
+    background-color: var(--color-blue-light);
+    border: none;
+    color: var(--color-blue-dard);
+    font-weight: 600;
+  }
+  
+  .headers_variables__button:first-of-type {
+    margin-right: 10px;
+  }
+  
+  .headers_variables__button:hover {
+    cursor: pointer;
+    color: var(--color-white);
+  }
+  
+  .headers_variables__editor {
+    height: 100%;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    transition: 0.5s;
+  }
+  
+  .active {
+    color: var(--color-white);
+  }
