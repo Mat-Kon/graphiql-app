@@ -33,8 +33,8 @@ const VariablesBlock = () => {
         </div>
       </div>
       <div className={styles.headers_variables__editor}>
-        {!isVarHidden && <VariablesEditor />}
-        {isVarHidden && <VariablesEditor />}
+        {!isVarHidden && <VariablesEditor mode="variables" />}
+        {isVarHidden && <VariablesEditor mode="headers" />}
       </div>
     </>
   );

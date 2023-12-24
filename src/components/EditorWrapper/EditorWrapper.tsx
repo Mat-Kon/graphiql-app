@@ -19,15 +19,24 @@ const EditorWrapper: React.FC = () => {
   //get base url
   //get query
   const varsString = useSelector((state: RootState) => state.variables.variables);
+  const headersString = useSelector((state: RootState) => state.headers.headers);
   let variables: object;
+  let headers: object;
+
   try {
     variables = JSON.parse(varsString);
   } catch {
     variables = {};
   }
+
+  try {
+    headers = JSON.parse(headersString);
+  } catch {
+    headers = {};
+  }
   useEffect(() => {
     showData();
-    console.log(data, variables);
+    console.log(data, variables, headers);
   }, []);
 
   const showData = async () => {

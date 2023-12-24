@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import loadingSlice from './loadingSlice';
 import variablesSlice from './variablesSlice';
+import headersSlice from './headersSlice';
 
 const rootReduser = combineReducers({
   loading: loadingSlice,
   variables: variablesSlice,
+  headers: headersSlice,
 });
 
 const store = configureStore({
