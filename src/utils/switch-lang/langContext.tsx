@@ -11,15 +11,15 @@ interface LanguageContextType {
   changeLanguage: () => void;
 }
 
+interface Props {
+  children: ReactNode;
+}
+
 export const LanguageContext = createContext<LanguageContextType>({
   translations: {},
   currentLanguage: '',
   changeLanguage: () => {},
 });
-
-interface Props {
-  children: ReactNode;
-}
 
 export const LanguageProvider: React.FC<Props> = ({ children }) => {
   const [translations] = useState<Translations>(translationsData);
@@ -29,7 +29,9 @@ export const LanguageProvider: React.FC<Props> = ({ children }) => {
     if (currentLanguage === 'en') {
       setCurrentLanguage('ru');
     }
-    if (currentLanguage === 'ru') setCurrentLanguage('en');
+    if (currentLanguage === 'ru') {
+      setCurrentLanguage('en');
+    }
   };
 
   return (

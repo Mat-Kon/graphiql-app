@@ -6,12 +6,13 @@ import { store } from '../utils/redux/store';
 
 describe('ResponsBlock', () => {
   it('render textarea', () => {
-    const { getByRole } = render(
+    const { getByRole, getByTestId } = render(
       <Provider store={store}>
         <ResponsBlock />
       </Provider>
     );
 
+    expect(getByTestId('response-block')).toBeInTheDocument();
     expect(getByRole('textbox')).toBeInTheDocument();
   });
 });

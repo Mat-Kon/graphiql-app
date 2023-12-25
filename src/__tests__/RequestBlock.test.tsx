@@ -1,29 +1,11 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import RequestBlock from '../components/RequestBlock/RequestBlock';
-import { Provider } from 'react-redux';
-import { store } from '../utils/redux/store';
-
-jest.mock('../utils/hooks/useLangContext', () => ({
-  useLanguageContext: () => ({
-    translations: {
-      en: {
-        setBtn: 'Set API',
-        requestBtn: 'Request',
-        formatBtn: 'Format',
-      },
-    },
-    currentLanguage: 'en',
-  }),
-}));
+import { renderer } from '../utils/renderer';
 
 describe('RequestBlock', () => {
   it('renders URL textarea and buttons container', () => {
-    render(
-      <Provider store={store}>
-        <RequestBlock />
-      </Provider>
-    );
+    renderer(<RequestBlock />);
 
     const urlTextarea = screen.getByTestId('url-textarea');
     expect(urlTextarea).toBeInTheDocument();
@@ -40,11 +22,7 @@ describe('RequestBlock', () => {
   });
 
   it('updates URL textarea value', () => {
-    render(
-      <Provider store={store}>
-        <RequestBlock />
-      </Provider>
-    );
+    renderer(<RequestBlock />);
 
     const urlTextarea = screen.getByTestId('url-textarea');
 
