@@ -5,7 +5,7 @@ const Docs = () => {
   const [isOpen, setOpen] = useState(false);
 
   return isOpen ? (
-    <div className={styles.docs_container_open}>
+    <div className={styles.docs_container_open} data-testid="docs">
       <div className={styles.btn_wrap}>
         <button className={styles.btn} onClick={() => setOpen(!isOpen)}>
           btn
@@ -14,7 +14,7 @@ const Docs = () => {
       <div className={styles.docs}>Here will be Docs</div>
     </div>
   ) : (
-    <div className={styles.docs_container_close}>
+    <div className={styles.docs_container_close} data-testid="docs">
       <div className={styles.btn_wrap}>
         <button className={styles.btn} onClick={() => setOpen(!isOpen)}>
           btn

@@ -4,7 +4,7 @@ const Loader: React.FC = () => {
   return (
     <div className={styles.loader}>
       <div className={styles.wrapper}>
-        <div className={styles.img}></div>
+        <div className={styles.img} data-testid="loader"></div>
       </div>
     </div>
   );
