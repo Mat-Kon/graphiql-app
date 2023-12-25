@@ -6,23 +6,30 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../utils/Firebase';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import Loader from '../../components/Loader/Loader';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
 
 const MainPage = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const isLoading = useAppSelector((store) => store.loading.isLoading);
 
   useEffect(() => {
     if (!user) {
       navigate('/');
     }
-  }, [user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, isLoading]);
 
   return (
-    <div className={styles.wrapper}>
-      <Docs />
-      <RequestBlock />
-      <ResponsBlock />
-    </div>
+    <>
+      {isLoading ? <Loader /> : null}
+      <div className={styles.wrapper}>
+        <Docs />
+        <RequestBlock />
+        <ResponsBlock />
+      </div>
+    </>
   );
 };
 export default MainPage;

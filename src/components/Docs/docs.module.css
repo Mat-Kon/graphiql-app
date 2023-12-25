@@ -16,6 +16,28 @@
     }
 }
 
+@keyframes openDocsOnMobile {
+    from {
+        width: 3%;
+        height: 30px;
+    }
+    to {
+        width: 97%;
+        height: 200px;
+    }
+}
+
+@keyframes closeDocsOnMobile {
+    from {
+        width: 97%;
+        height: 200px;
+    }
+    to {
+        width: 3%;
+        height: 30px;
+    }
+}
+
 .docs_container_open {
     position: relative;
     display: flex;
@@ -57,4 +79,28 @@
     width: 30px;
     height: 30px;
     border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .docs_container_open {
+        width: 97%;
+        height: 200px;
+        overflow: auto;
+        animation: openDocsOnMobile 2s;
+    }
+    
+    .docs_container_close {
+        min-width: 5%;
+        height: 30px;
+        animation: closeDocsOnMobile 2s;
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .docs_container_close {
+        min-width: 10%;
+    }
+
 }

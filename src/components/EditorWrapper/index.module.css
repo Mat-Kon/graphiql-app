@@ -6,9 +6,17 @@
 }
 
 .editor {
-  min-height: 100%;
-  width: 100%;
   border-radius: 10px;
   padding: 5px 10px;
   resize: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .editor_wrapper {
+    min-height: 200px;
+  }
+  
+  .editor {
+    min-height: 200px;
+  }
 }

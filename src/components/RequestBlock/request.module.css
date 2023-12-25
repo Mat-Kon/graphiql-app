@@ -29,3 +29,10 @@
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 1000px) {
+  .req__container {
+    min-width: 94%;
+    margin: auto;
+  }
+}

@@ -5,90 +5,50 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-graphqlschema';
 import 'ace-builds/src-noconflict/theme-xcode';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
+import { setQuery } from '../../utils/redux/querySlice';
 ace.config.set('basePath', '/node_modules/ace-builds/src-min-noconflict');
 
-const DEAFAULT_VALUE = 'Hello!\n{\n  query{\n    name\n  }\n}';
+const DEAFAULT_VALUE = `There should only be a query.
+query {
+  character(id: ID) {
+    name
+  }
+}
+`;
 
 const EditorWrapper: React.FC = () => {
   const refEditor = useRef<AceEditor>(null);
-  const [data, setData] = useState<unknown | null>(null);
+  const dispatch = useAppDispatch();
+  const [curValue, setCurValue] = useState(DEAFAULT_VALUE);
+  const prettifiedQuery = useAppSelector((store) => store.prettified.prettifiedQuery);
 
-  // const { setloader } = useLoading();
-  //get base url
-  //get query
   useEffect(() => {
-    showData();
-    console.log(data);
-  }, []);
-
-  const showData = async () => {
-    //query
-    const query = `
-    query IntrospectionQuery {
-      __schema {
-        types {
-          name
-          kind
-          description
-          fields {
-            name
-            description
-            args {
-              name
-              description
-              type {
-                kind
-                name
-                ofType {
-                  kind
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
+    if (prettifiedQuery !== '') {
+      setCurValue(prettifiedQuery);
     }
-  `;
-
-    try {
-      const resp = await fetch('https://rickandmortyapi.com/graphql', {
-        // <-- base url
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          query,
-        }),
-      });
-      const data = await resp.json();
-      setData(data);
-    } catch {
-      console.error('error');
-    }
-  };
+  }, [prettifiedQuery]);
 
   const handlerEditor = () => {
     if (refEditor.current) {
-      const code = refEditor.current.editor.getValue();
-      console.log(code);
+      const newQuery = refEditor.current.editor.getValue();
+      setCurValue(newQuery);
+      dispatch(setQuery(newQuery));
     }
   };
 
   return (
-    <div className={styles.editor_wrapper}>
+    <div className={styles.editor_wrapper} data-testid="editor">
       <AceEditor
         className={styles.editor}
         onChange={handlerEditor}
+        value={curValue}
         ref={refEditor}
         name="editor"
         height="100%"
         width="100%"
         mode="graphqlschema"
         theme="xcode"
-        defaultValue={DEAFAULT_VALUE}
         fontSize={14}
         showGutter={true}
         highlightActiveLine={true}
