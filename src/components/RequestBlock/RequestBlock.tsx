@@ -1,5 +1,6 @@
 import EditorWrapper from '../EditorWrapper/EditorWrapper';
 import RequstBtnsContainer from '../RequstBtnsContainer/RequstBtnsContainer';
+import VariablesBlock from '../VariablesBlock/VariablesBlock';
 import { useState } from 'react';
 import styles from './request.module.css';
 
@@ -22,13 +23,7 @@ const RequestBlock = () => {
       </div>
       <RequstBtnsContainer url={url} />
       <EditorWrapper />
-      <div className={styles.req__heders_variables} data-testid="var-container">
-        <div>
-          <button>btn</button>
-          <button>btn</button>
-        </div>
-        <div></div>
-      </div>
+      <VariablesBlock />
     </div>
   );
 };
