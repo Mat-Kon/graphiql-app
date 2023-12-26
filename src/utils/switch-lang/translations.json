@@ -30,7 +30,9 @@
     "line11": "Variables and headers editors",
     "setBtn": "Set API",
     "requestBtn": "Request",
-    "formatBtn": "Format"
+    "formatBtn": "Format",
+    "variables": "Variables",
+    "headers": "Headers"
   },
   "ru": {
     "login": "Вход",
@@ -63,6 +65,8 @@
     "line11": "Редакторы переменных и заголовков",
     "setBtn": "Установить API",
     "requestBtn": "Запрос",
-    "formatBtn": "Отфармотировать"
+    "formatBtn": "Отфармотировать",
+    "variables": "Переменные",
+    "headers": "Заголовки"
   }
 }
