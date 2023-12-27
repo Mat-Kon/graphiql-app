@@ -8,7 +8,7 @@ const VariablesBlock = () => {
   const [isVarHidden, setIsVarHidden] = useState(false);
   return (
     <>
-      <div className={styles.headers_variables}>
+      <div className={styles.headers_variables} data-testid="var-container">
         <div>
           <button
             className={
