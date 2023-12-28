@@ -1,35 +1,45 @@
-// import { useEffect } from 'react';
-// import { useState } from 'react';
+import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
+import { useEffect, useState } from 'react';
 
-// const ENDPOINT = 'https://rickandmortyapi.com/graphql'; // for first time
+const DocsMain = () => {
+  const [schema, setSchema] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
 
-// export const QueryData = async () => {
-//   const response = await fetch(ENDPOINT);
-//   const data = await response.json();
-//   console.log(data.__schema);
-//   return data.data;
-// };
+  const url = localStorage.getItem('url') || '';
+  const introspectionQuery = getIntrospectionQuery();
 
-// const DocsMain = () => {
-// //   const [isLoaded, setIsLoaded] = useState(false);
-// //   const [schemaTypes, setSchemaTypes] = useState<null | FullType[]>(null);
+  useEffect(() => {
+    const getSchema = async (url: string) => {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: introspectionQuery }),
+      });
+      const { data, errors } = await response.json();
+      console.log(data);
+      if (errors) {
+        console.error('Building schema error', errors);
+        return;
+      }
+      const schema = buildClientSchema(data);
+      console.log(schema);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const data = await getIntrospectionQueryData();
-//       const schema_types = (data.__schema.types as FullType[]).filter(
-//         (type) => !type.name.startsWith('__')
-//       );
-//       setSchemaTypes(schema_types);
-//     };
-//     fetchData()
-//       .then(() => {
-//         setIsLoaded(true);
-//       })
-//       .catch(console.error);
-//   }, []);
+      const printedSchema = await printSchema(schema);
+      setSchema(printedSchema);
+      return printedSchema;
+    };
+    getSchema(url)
+      .then(() => {
+        setIsLoaded(true);
+      })
+      .catch(console.error);
+  });
 
-//   return <div>Here will be docs</div>;
-// };
+  return (
+    <div>
+      <div>{isLoaded && <div>{schema}</div>}</div>
+    </div>
+  );
+};
 
-// export default DocsMain;
+export default DocsMain;
