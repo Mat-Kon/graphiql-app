@@ -24,3 +24,9 @@
 .request_btns:active {
   transform: scale(0.9);
 }
+
+@media screen and (max-width: 1000px) {
+  .btns_container {
+    width: 95%;
+  }
+}

@@ -89,7 +89,7 @@
         overflow: auto;
         animation: openDocsOnMobile 2s;
     }
-    
+
     .docs_container_close {
         min-width: 5%;
         height: 30px;
