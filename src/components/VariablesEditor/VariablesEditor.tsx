@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setVariables } from '../../utils/redux/variablesSlice';
 import { setHeaders } from '../../utils/redux/headersSlice';
@@ -17,9 +17,11 @@ interface Props {
 const VariablesEditor = ({ mode }: Props) => {
   const refEditor = useRef<AceEditor>(null);
   const dispatch = useDispatch();
+  const [editValue, setEditValue] = useState('Should be in JSON format');
   const handlerEditor = () => {
     if (refEditor.current) {
       const value = refEditor.current.editor.getValue();
+      setEditValue(value);
       mode == 'variables' ? dispatch(setVariables(value)) : dispatch(setHeaders(value));
     }
   };
@@ -34,7 +36,7 @@ const VariablesEditor = ({ mode }: Props) => {
         width="100%"
         mode="graphqlschema"
         theme="xcode"
-        value="Should be in JSON format"
+        value={editValue}
         fontSize={14}
         showGutter={true}
         highlightActiveLine={true}
