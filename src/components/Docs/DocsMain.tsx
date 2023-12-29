@@ -2,8 +2,8 @@ import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
 import { useEffect, useState } from 'react';
 
 const DocsMain = () => {
-  const [schema, setSchema] = useState('');
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [schema, setSchema] = useState<string | null>(null);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   const url = localStorage.getItem('url') || '';
   const introspectionQuery = getIntrospectionQuery();
@@ -16,14 +16,11 @@ const DocsMain = () => {
         body: JSON.stringify({ query: introspectionQuery }),
       });
       const { data, errors } = await response.json();
-      console.log(data);
       if (errors) {
         console.error('Building schema error', errors);
         return;
       }
       const schema = buildClientSchema(data);
-      console.log(schema);
-
       const printedSchema = await printSchema(schema);
       setSchema(printedSchema);
       return printedSchema;
@@ -37,7 +34,7 @@ const DocsMain = () => {
 
   return (
     <div>
-      <div>{isLoaded && <div>{schema}</div>}</div>
+      <div>{isLoaded && <pre>{schema}</pre>}</div>
     </div>
   );
 };

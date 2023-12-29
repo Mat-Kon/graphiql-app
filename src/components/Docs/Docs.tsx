@@ -17,7 +17,7 @@ const Docs = () => {
   ) : (
     <div className={styles.docs_container_close} data-testid="docs">
       <div className={styles.btn_wrap}>
-        <button className={styles.btn} onClick={() => setOpen(!isOpen)}>
+        <button className={styles.btn_open} onClick={() => setOpen(!isOpen)}>
           Docs
         </button>
       </div>

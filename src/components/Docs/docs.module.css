@@ -49,11 +49,13 @@
     border-radius: 0 10px 10px 0;
     padding: 5px 40px 0px 0;
     animation: openDocs 1s;
+    overflow: auto;
+    height: 800px;
 }
 
 .docs_container_close {
     min-height: 80%;
-    width: 2%;
+    width: 3%;
     border-radius: 0 10px 10px 0;
     background-color: var(--color-blue-dard);
     animation: closeDocs 1s;
@@ -85,6 +87,17 @@
     transition: all 0.5s;
 }
 
+.btn_open {
+    width: 40px;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-orange);
+    color: var(--color-blue-dard);
+    transition: all 0.5s;
+}
+
 @media screen and (max-width: 1000px) {
     .docs_container_open {
         width: 97%;
@@ -94,8 +107,8 @@
     }
 
     .docs_container_close {
-        min-width: 5%;
-        height: 30px;
+        min-width: 8%;
+        height: 35px;
         animation: closeDocsOnMobile 2s;
 
     }
@@ -103,7 +116,7 @@
 
 @media screen and (max-width: 500px) {
     .docs_container_close {
-        min-width: 10%;
+        min-width: 12%;
     }
 
 }
