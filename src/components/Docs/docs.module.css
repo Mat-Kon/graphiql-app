@@ -1,6 +1,6 @@
 @keyframes openDocs {
     from {
-        width: 2%;
+        width: 5%;
     }
     to {
         width: 20%;
@@ -12,14 +12,14 @@
         width: 20%;
     }
     to {
-        width: 2%;
+        width: 5%;
     }
 }
 
 @keyframes openDocsOnMobile {
     from {
         width: 3%;
-        height: 30px;
+        height: 35px;
     }
     to {
         width: 97%;
@@ -34,7 +34,7 @@
     }
     to {
         width: 3%;
-        height: 30px;
+        height: 35px;
     }
 }
 
@@ -55,7 +55,7 @@
 
 .docs_container_close {
     min-height: 80%;
-    width: 3%;
+    width: 5%;
     border-radius: 0 10px 10px 0;
     background-color: var(--color-blue-dard);
     animation: closeDocs 1s;
