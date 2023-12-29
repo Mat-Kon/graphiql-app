@@ -24,7 +24,7 @@ const VariablesEditor = ({ mode }: Props) => {
     }
   };
   return (
-    <div className={styles.variables_editor}>
+    <div className={styles.variables_editor} id={mode}>
       <AceEditor
         className={styles.editor}
         onChange={handlerEditor}
@@ -34,7 +34,7 @@ const VariablesEditor = ({ mode }: Props) => {
         width="100%"
         mode="graphqlschema"
         theme="xcode"
-        placeholder="Should be in JSON format"
+        value="Should be in JSON format"
         fontSize={14}
         showGutter={true}
         highlightActiveLine={true}
