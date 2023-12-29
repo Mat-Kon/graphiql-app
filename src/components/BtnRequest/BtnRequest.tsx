@@ -12,14 +12,22 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
   const query = useAppSelector((store) => store.quary.query);
   const dispatch = useAppDispatch();
   const baseUrl = localStorage.getItem('url') ?? '';
+  const varsString = useAppSelector((store) => store.variables.variables);
+  let variables: object;
+
+  try {
+    variables = JSON.parse(varsString);
+  } catch {
+    variables = {};
+  }
 
   const handlerClick = () => {
     if (query !== '') {
-      showData(baseUrl, query);
+      showData(baseUrl, query, variables);
     }
   };
 
-  const showData = async (url: string, query: string) => {
+  const showData = async (url: string, query: string, variables: object) => {
     if (!url || url === '') {
       dispatch(setRespons('You need to specify the endpoint in the url'));
     }
@@ -34,6 +42,7 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
         },
         body: JSON.stringify({
           query,
+          variables,
         }),
       });
       const data = await resp.json();
