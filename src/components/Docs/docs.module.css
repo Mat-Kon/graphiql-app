@@ -107,7 +107,7 @@
     }
 
     .docs_container_close {
-        min-width: 8%;
+        min-width: 9%;
         height: 35px;
         animation: closeDocsOnMobile 2s;
 
