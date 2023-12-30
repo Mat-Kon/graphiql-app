@@ -59,3 +59,17 @@
 input::placeholder {
   color: var(--color-blue-dard);
 }
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 80%;
+  }
+
+}
