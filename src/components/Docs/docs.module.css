@@ -1,6 +1,6 @@
 @keyframes openDocs {
     from {
-        width: 5%;
+        width: 3%;
     }
     to {
         width: 20%;
@@ -12,7 +12,7 @@
         width: 20%;
     }
     to {
-        width: 5%;
+        width: 3%;
     }
 }
 
@@ -55,7 +55,7 @@
 
 .docs_container_close {
     min-height: 80%;
-    width: 5%;
+    width: 3%;
     border-radius: 0 10px 10px 0;
     background-color: var(--color-blue-dard);
     animation: closeDocs 1s;
@@ -96,6 +96,11 @@
     background-color: var(--color-orange);
     color: var(--color-blue-dard);
     transition: all 0.5s;
+}
+
+.docs_content {
+    color: var(--color-orange);
+    padding-left: 10px;
 }
 
 @media screen and (max-width: 1000px) {

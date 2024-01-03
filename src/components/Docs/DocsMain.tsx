@@ -1,5 +1,6 @@
 import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
 import { useEffect, useState } from 'react';
+import styles from './docs.module.css';
 
 const DocsMain = () => {
   const [schema, setSchema] = useState<string | null>(null);
@@ -33,7 +34,7 @@ const DocsMain = () => {
   });
 
   return (
-    <div>
+    <div className={styles.docs_content}>
       <div>{isLoaded && <pre>{schema}</pre>}</div>
     </div>
   );

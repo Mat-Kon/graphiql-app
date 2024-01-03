@@ -39,6 +39,7 @@ const WelcomePage = () => {
                 <li>{translations[currentLanguage].line2}</li>
                 <li>{translations[currentLanguage].line3}</li>
                 <li>{translations[currentLanguage].line4}</li>
+                <li>{translations[currentLanguage].line12}</li>
               </ul>
             </div>
             <div className={styles.card}>
