@@ -34,7 +34,7 @@ const DocsMain = () => {
   });
 
   return (
-    <div className={styles.docs_content}>
+    <div className={styles.docs_content} data-testid="docs-content">
       <div>{isLoaded && <pre>{schema}</pre>}</div>
     </div>
   );

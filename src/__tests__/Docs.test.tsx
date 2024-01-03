@@ -4,10 +4,10 @@ import Docs from '../components/Docs/Docs';
 
 describe('Docs component', () => {
   it('renders the closed state by default', () => {
-    const { getByTestId, queryByText } = render(<Docs />);
+    const { getByTestId, queryByTestId } = render(<Docs />);
 
     const docsContainer = getByTestId('docs');
-    const openDocs = queryByText('Here will be Docs');
+    const openDocs = queryByTestId('docs-content');
 
     expect(docsContainer).toHaveClass('docs_container_close');
     expect(openDocs).toBeNull();
@@ -17,14 +17,15 @@ describe('Docs component', () => {
     const { getByTestId, getByText } = render(<Docs />);
 
     const docsContainer = getByTestId('docs');
-    const toggleButton = getByText('btn');
+    const openBtn = getByText('Docs');
 
-    fireEvent.click(toggleButton);
+    fireEvent.click(openBtn);
 
     expect(docsContainer).toHaveClass('docs_container_open');
-    expect(getByText('Here will be Docs')).toBeInTheDocument();
+    expect(getByTestId('docs-content')).toBeInTheDocument();
+    const closeBtn = getByText('Close docs');
 
-    fireEvent.click(toggleButton);
+    fireEvent.click(closeBtn);
 
     expect(docsContainer).toHaveClass('docs_container_close');
   });
