@@ -51,7 +51,7 @@ const Header: React.FC = () => {
             <Link to={'/auth'} className={styles.btns}>
               {translations[currentLanguage].login}
             </Link>
-            <Link to={'/regitstartion'} className={styles.btns}>
+            <Link to={'/registration'} className={styles.btns}>
               {translations[currentLanguage].signup}
             </Link>
             <span className={styles.switch_ln} onClick={changeLanguage}>

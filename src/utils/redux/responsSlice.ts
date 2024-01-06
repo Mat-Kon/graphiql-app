@@ -1,22 +1,22 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface IinitState {
-  respons: unknown;
+interface IInitState {
+  response: unknown;
 }
 
-const initialState: IinitState = {
-  respons: null,
+const initialState: IInitState = {
+  response: null,
 };
 
-const responsSlice = createSlice({
+const responseSlice = createSlice({
   name: 'query',
   initialState,
   reducers: {
-    setRespons: (state, action: PayloadAction<unknown>) => {
-      state.respons = action.payload;
+    setResponse: (state, action: PayloadAction<unknown>) => {
+      state.response = action.payload;
     },
   },
 });
 
-export const { setRespons } = responsSlice.actions;
-export default responsSlice.reducer;
+export const { setResponse } = responseSlice.actions;
+export default responseSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { setloading } from '../../utils/redux/loadingSlice';
-import { setRespons } from '../../utils/redux/responsSlice';
+import { setResponse } from '../../utils/redux/responsSlice';
 
 interface Props {
   name: string;
@@ -37,13 +37,12 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
     if (query !== '') {
       showData(baseUrl, query, variables);
     }
+    if (!baseUrl || baseUrl === '') {
+      dispatch(setResponse('You need to specify the endpoint in the url'));
+    }
   };
 
   const showData = async (url: string, query: string, variables: object) => {
-    if (!url || url === '') {
-      dispatch(setRespons('You need to specify the endpoint in the url'));
-    }
-
     try {
       dispatch(setloading(true));
       const resp = await fetch(url, {
@@ -55,10 +54,12 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
         }),
       });
       const data = await resp.json();
-      dispatch(setRespons(data));
-    } catch (error) {
+      dispatch(setResponse(data));
+    } catch (error: unknown) {
       console.error('error');
-      dispatch(setRespons(error));
+      if (error instanceof Error) {
+        dispatch(setResponse(error.message));
+      }
     } finally {
       dispatch(setloading(false));
     }

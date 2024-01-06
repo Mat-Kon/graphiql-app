@@ -30,7 +30,7 @@ describe('ErrorBoundary', () => {
   });
 
   it('logs error and error information when an error occurs', () => {
-    const consoleSpy = jest.spyOn(console, 'log');
+    const consoleSpy = jest.spyOn(console, 'error');
 
     const ChildWithError = () => {
       throw new Error('Test error');

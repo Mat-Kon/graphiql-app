@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { schema } from '../../validation/validation';
 import { IFormData, InputsSignUp } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
-import { auth, registerWithEmailAndPassword } from '../../utils/Firebase';
+import { auth, logout, registerWithEmailAndPassword } from '../../utils/Firebase';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
@@ -40,6 +40,9 @@ const SignUp = () => {
     const { email, password } = data;
     registerWithEmailAndPassword(email, password);
     dispatch(setloading(true));
+    setTimeout(() => {
+      logout();
+    }, 300000);
   };
 
   return (

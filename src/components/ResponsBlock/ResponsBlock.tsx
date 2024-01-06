@@ -9,7 +9,7 @@ import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import styles from './respons.module.css';
 
 const ResponsBlock = () => {
-  const respons = useAppSelector((store) => store.respons.respons);
+  const respons = useAppSelector((store) => store.response.response);
   const [curValue, setCurValue] = useState('');
 
   useEffect(() => {

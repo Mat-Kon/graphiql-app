@@ -1,5 +1,6 @@
 import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
 import { useEffect, useState } from 'react';
+import styles from './docs.module.css';
 
 const DocsMain = () => {
   const [schema, setSchema] = useState<string | null>(null);
@@ -10,25 +11,6 @@ const DocsMain = () => {
   const introspectionQuery = getIntrospectionQuery();
 
   useEffect(() => {
-    const getSchema = async (url: string) => {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: introspectionQuery }),
-      });
-      //   if (response.ok) {}
-      if (!response.ok) {
-        setError(
-          'Error!Something is going wrong! The documnetation is not loaded. Please check endpoints'
-        );
-      }
-      const { data } = await response.json();
-      const schema = buildClientSchema(data);
-      const printedSchema = await printSchema(schema);
-      setSchema(printedSchema);
-      setIsLoaded(true);
-      return printedSchema;
-    };
     getSchema(url)
       .then(() => {
         setIsLoaded(true);
@@ -40,8 +22,27 @@ const DocsMain = () => {
       );
   });
 
+  const getSchema = async (url: string) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: introspectionQuery }),
+    });
+    if (!response.ok) {
+      setError(
+        'Error!Something is going wrong! The documnetation is not loaded. Please check endpoints'
+      );
+    }
+    const { data } = await response.json();
+    const schema = buildClientSchema(data);
+    const printedSchema = await printSchema(schema);
+    setSchema(printedSchema);
+    setIsLoaded(true);
+    return printedSchema;
+  };
+
   return (
-    <div>
+    <div className={styles.docs_content} data-testid="docs-content">
       <div>{isLoaded ? <pre>{schema}</pre> : <div>{error}</div>}</div>
     </div>
   );
