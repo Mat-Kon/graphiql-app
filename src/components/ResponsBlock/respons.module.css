@@ -1,0 +1,26 @@
+.resp__container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blue-dard);
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.resp__view {
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .resp__container {
+        width: 94%;
+        margin: auto;
+        min-height: 200px;
+    }
+
+    .resp__view {
+        width: 90%;
+        min-height: 190px;
+    }
+}

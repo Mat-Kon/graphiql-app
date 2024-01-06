@@ -1,0 +1,135 @@
+@keyframes openDocs {
+    from {
+        width: 3%;
+    }
+    to {
+        width: 20%;
+    }
+}
+
+@keyframes closeDocs {
+    from {
+        width: 20%;
+    }
+    to {
+        width: 3%;
+    }
+}
+
+@keyframes openDocsOnMobile {
+    from {
+        width: 3%;
+        height: 35px;
+    }
+    to {
+        width: 97%;
+        height: 200px;
+    }
+}
+
+@keyframes closeDocsOnMobile {
+    from {
+        width: 97%;
+        height: 200px;
+    }
+    to {
+        width: 3%;
+        height: 35px;
+    }
+}
+
+.docs_container_open {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--color-blue-dard);
+    width: 20%;
+    min-height: 80%;
+    border-radius: 0 10px 10px 0;
+    padding: 5px 40px 0px 0;
+    animation: openDocs 1s;
+    overflow: auto;
+    height: 800px;
+    color: var(--color-white);
+}
+
+.docs_container_close {
+    min-height: 80%;
+    width: 3%;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--color-blue-dard);
+    animation: closeDocs 1s;
+}
+
+.docs_container_close .btn_wrap {
+    right: 0;
+}
+
+.docs {
+    background-color: var(--color-blue);
+}
+
+.btn_wrap {
+    right: -35px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.btn {
+    width: 80px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-orange);
+    color: var(--color-blue-dard);
+    transition: all 0.5s;
+}
+
+
+.btn_open {
+    width: 40px;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-orange);
+    color: var(--color-blue-dard);
+    transition: all 0.5s;
+}
+
+.btn_open:hover,
+.btn:hover {
+    background-color: var(--color-orange-glow);
+    cursor: pointer;
+}
+
+.docs_content {
+    color: var(--color-orange);
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .docs_container_open {
+        width: 97%;
+        height: 200px;
+        overflow: auto;
+        animation: openDocsOnMobile 2s;
+    }
+
+    .docs_container_close {
+        min-width: 9%;
+        height: 35px;
+        animation: closeDocsOnMobile 2s;
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .docs_container_close {
+        min-width: 12%;
+    }
+
+}
