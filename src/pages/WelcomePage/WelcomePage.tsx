@@ -20,7 +20,7 @@ const WelcomePage = () => {
             <Link to={'/auth'} className={styles.link}>
               {translations[currentLanguage].login}
             </Link>
-            <Link to={'/regitstartion'} className={styles.link}>
+            <Link to={'/registration'} className={styles.link}>
               {translations[currentLanguage].signup}
             </Link>
           </>
