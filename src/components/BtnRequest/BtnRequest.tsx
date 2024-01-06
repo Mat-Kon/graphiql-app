@@ -37,13 +37,12 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
     if (query !== '') {
       showData(baseUrl, query, variables);
     }
+    if (!baseUrl || baseUrl === '') {
+      dispatch(setResponse('You need to specify the endpoint in the url'));
+    }
   };
 
   const showData = async (url: string, query: string, variables: object) => {
-    if (!url || url === '') {
-      dispatch(setResponse('You need to specify the endpoint in the url'));
-    }
-
     try {
       dispatch(setloading(true));
       const resp = await fetch(url, {
