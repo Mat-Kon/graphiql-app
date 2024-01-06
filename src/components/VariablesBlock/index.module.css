@@ -1,3 +1,13 @@
+@keyframes openEditor {
+  from {
+    min-height: 0%;
+  }
+
+  to {
+    min-height: 20%;
+  }
+}
+
 .headers_variables {
     min-height: 25px;
     width: 90%;
@@ -29,6 +39,7 @@
     border-radius: 10px;
     background-color: var(--color-white);
     transition: 0.5s;
+    animation: openEditor 2s linear;
   }
 
   .active {

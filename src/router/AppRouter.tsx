@@ -20,7 +20,7 @@ const router = createBrowserRouter(
         }
       />
       <Route
-        path="regitstartion"
+        path="registration"
         element={
           <Layout>
             <RegistrationPage />

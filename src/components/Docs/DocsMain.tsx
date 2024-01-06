@@ -29,7 +29,6 @@ const DocsMain = () => {
       body: JSON.stringify({ query: introspectionQuery }),
     });
     if (!response.ok) {
-      console.log(response);
       setError(
         'Error!Something is going wrong! The documnetation is not loaded. Please check endpoints'
       );

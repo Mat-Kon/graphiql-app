@@ -88,6 +88,7 @@
     transition: all 0.5s;
 }
 
+
 .btn_open {
     width: 40px;
     margin: 5px;
@@ -97,6 +98,12 @@
     background-color: var(--color-orange);
     color: var(--color-blue-dard);
     transition: all 0.5s;
+}
+
+.btn_open:hover,
+.btn:hover {
+    background-color: var(--color-orange-glow);
+    cursor: pointer;
 }
 
 .docs_content {

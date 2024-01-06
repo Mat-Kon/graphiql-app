@@ -6,6 +6,26 @@ import styles from './index.module.css';
 const VariablesBlock = () => {
   const { translations, currentLanguage } = useLanguageContext();
   const [isVarHidden, setIsVarHidden] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+
+  const handlerVarBtn = () => {
+    if (isOpen && !isVarHidden) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+      setIsVarHidden(false);
+    }
+  };
+
+  const handlerHeadersBtn = () => {
+    if (isOpen && isVarHidden) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+      setIsVarHidden(true);
+    }
+  };
+
   return (
     <>
       <div className={styles.headers_variables} data-testid="var-container">
@@ -15,7 +35,7 @@ const VariablesBlock = () => {
               ? styles.headers_variables__button
               : `${styles.headers_variables__button} ${styles.active}`
           }
-          onClick={() => setIsVarHidden(false)}
+          onClick={handlerVarBtn}
         >
           {translations[currentLanguage].variables}
         </button>
@@ -25,15 +45,17 @@ const VariablesBlock = () => {
               ? `${styles.headers_variables__button} ${styles.active}`
               : styles.headers_variables__button
           }
-          onClick={() => setIsVarHidden(true)}
+          onClick={handlerHeadersBtn}
         >
           {translations[currentLanguage].headers}
         </button>
       </div>
-      <div className={styles.headers_variables__editor}>
-        {!isVarHidden && <VariablesEditor mode="variables" />}
-        {isVarHidden && <VariablesEditor mode="headers" />}
-      </div>
+      {isOpen ? (
+        <div className={styles.headers_variables__editor}>
+          {!isVarHidden && <VariablesEditor mode="variables" />}
+          {isVarHidden && <VariablesEditor mode="headers" />}
+        </div>
+      ) : null}
     </>
   );
 };

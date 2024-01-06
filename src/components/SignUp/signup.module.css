@@ -34,7 +34,7 @@
 
 .submit:hover {
   background-color: var(--color-orange-glow);
-
+  cursor: pointer;
 }
 
 .error {
