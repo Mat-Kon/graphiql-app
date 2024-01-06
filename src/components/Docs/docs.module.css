@@ -51,6 +51,7 @@
     animation: openDocs 1s;
     overflow: auto;
     height: 800px;
+    color: var(--color-white);
 }
 
 .docs_container_close {

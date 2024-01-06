@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 
 const DocsMain = () => {
   const [schema, setSchema] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState('The schema is loading');
 
   const url = localStorage.getItem('url') || '';
   const introspectionQuery = getIntrospectionQuery();
@@ -15,26 +16,33 @@ const DocsMain = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: introspectionQuery }),
       });
-      const { data, errors } = await response.json();
-      if (errors) {
-        console.error('Building schema error', errors);
-        return;
+      //   if (response.ok) {}
+      if (!response.ok) {
+        setError(
+          'Error!Something is going wrong! The documnetation is not loaded. Please check endpoints'
+        );
       }
+      const { data } = await response.json();
       const schema = buildClientSchema(data);
       const printedSchema = await printSchema(schema);
       setSchema(printedSchema);
+      setIsLoaded(true);
       return printedSchema;
     };
     getSchema(url)
       .then(() => {
         setIsLoaded(true);
       })
-      .catch(console.error);
+      .catch(() =>
+        setError(
+          'Error!Something is going wrong! The documnetation is not loaded. Please check endpoints'
+        )
+      );
   });
 
   return (
     <div>
-      <div>{isLoaded && <pre>{schema}</pre>}</div>
+      <div>{isLoaded ? <pre>{schema}</pre> : <div>{error}</div>}</div>
     </div>
   );
 };

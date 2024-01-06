@@ -32,7 +32,9 @@
     "requestBtn": "Request",
     "formatBtn": "Format",
     "variables": "Variables",
-    "headers": "Headers"
+    "headers": "Headers",
+    "docsBtn": "Docs",
+    "closeDocsBtn": "Close docs"
   },
   "ru": {
     "login": "Вход",
@@ -65,8 +67,10 @@
     "line11": "Редакторы переменных и заголовков",
     "setBtn": "Установить API",
     "requestBtn": "Запрос",
-    "formatBtn": "Отфармотировать",
+    "formatBtn": "Отформатировать",
     "variables": "Переменные",
-    "headers": "Заголовки"
+    "headers": "Заголовки",
+    "docsBtn": "Доки",
+    "closeDocsBtn": "Закрыть"
   }
 }
