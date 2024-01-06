@@ -13,13 +13,25 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
   const dispatch = useAppDispatch();
   const baseUrl = localStorage.getItem('url') ?? '';
   const varsString = useAppSelector((store) => store.variables.variables);
+  const headsString = useAppSelector((store) => store.headers.headers);
   let variables: object;
+  const headers: { [key: string]: string } = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  };
 
   try {
     variables = JSON.parse(varsString);
   } catch {
     variables = {};
   }
+
+  try {
+    const parsedHeaders = JSON.parse(headsString);
+    for (const key in parsedHeaders) {
+      headers[key] = parsedHeaders[key];
+    }
+  } catch {}
 
   const handlerClick = () => {
     if (query !== '') {
@@ -36,10 +48,7 @@ const BtnRequest: React.FC<Props> = ({ name, className }) => {
       dispatch(setloading(true));
       const resp = await fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
+        headers: headers,
         body: JSON.stringify({
           query,
           variables,
