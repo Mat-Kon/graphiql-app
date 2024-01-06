@@ -33,7 +33,9 @@
     "requestBtn": "Request",
     "formatBtn": "Format",
     "variables": "Variables",
-    "headers": "Headers"
+    "headers": "Headers",
+    "docsBtn": "Docs",
+    "closeDocsBtn": "Close docs"
   },
   "ru": {
     "login": "Вход",
@@ -67,8 +69,10 @@
     "line12": "Шапку и подвал",
     "setBtn": "Установить API",
     "requestBtn": "Запрос",
-    "formatBtn": "Отфармотировать",
+    "formatBtn": "Отформатировать",
     "variables": "Переменные",
-    "headers": "Заголовки"
+    "headers": "Заголовки",
+    "docsBtn": "Доки",
+    "closeDocsBtn": "Закрыть"
   }
 }

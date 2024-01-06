@@ -5,7 +5,7 @@ import { schemaSignIn } from '../../validation/validation';
 import { ISignInFormData } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 import { useLanguageContext } from '../../utils/hooks/useLangContext';
-import { auth, logInWithEmailAndPassword } from '../../utils/Firebase';
+import { auth, logInWithEmailAndPassword, logout } from '../../utils/Firebase';
 import { InputsLogIn } from '../../types/types';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { setloading } from '../../utils/redux/loadingSlice';
@@ -41,6 +41,9 @@ const SignIn = () => {
     const { email, password } = data;
     logInWithEmailAndPassword(email, password);
     dispatch(setloading(true));
+    setTimeout(() => {
+      logout();
+    }, 300000);
   };
 
   return (
