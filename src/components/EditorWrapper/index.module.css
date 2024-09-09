@@ -1,0 +1,23 @@
+.editor_wrapper {
+  position: relative;
+  min-height: 50%;
+  width: 90%;
+  background-color: var(--color-blue-dard);
+}
+
+.editor {
+  border-radius: 10px;
+  padding: 5px 10px;
+  resize: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .editor_wrapper {
+    min-height: 200px;
+    width: 95%;
+  }
+  
+  .editor {
+    min-height: 200px;
+  }
+}

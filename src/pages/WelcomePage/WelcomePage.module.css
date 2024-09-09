@@ -1,0 +1,142 @@
+li {
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-size: 20px;
+    color: var(--color-white);
+    background-color: var(--color-blue-dard);
+}
+
+.container {
+    background-color: var(--color-blue);
+    padding: 40px;
+    border-radius: 20px;
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 50px;
+    color: var(--color-orange);
+    margin-bottom: 20px;
+}
+
+.cards {
+     display: flex;
+     gap: 10px;
+     margin-top: 20px;
+}
+
+.card {
+    background-color: var(--color-blue-light);
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 30%;
+}
+
+.name {
+    margin-bottom: 10px;
+    text-decoration: var(--color-orange) underline;
+    text-underline-offset: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+    gap: 15px;
+}
+
+.link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.5s;
+    border-bottom: 2px solid var(--color-blue-dard);
+}
+
+.link:hover {
+    color: var(--color-orange);
+    border-bottom: 2px solid var(--color-orange);
+}
+
+@media (max-width: 800px) {
+    .container {
+        padding: 30px;
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 700px) {
+    .link {
+        display: block;
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 560px) {
+    .cards {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .card {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .card:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .title {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .buttons {
+        right: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .container {
+        font-size: 14px;
+    }
+
+    .link {
+        font-size: 14px;
+    }
+}

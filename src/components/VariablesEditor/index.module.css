@@ -1,0 +1,15 @@
+.variables_editor {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--color-white);
+}
+
+.editor {
+    border-radius: 10px;
+}
+
+.ace-xcode .ace_comment {
+    color: grey;
+}

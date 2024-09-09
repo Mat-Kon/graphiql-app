@@ -1,0 +1,6 @@
+.container{
+    display: flex;
+    align-items: center;
+    min-height: 85vh;
+    background-color: var(--color-blue-dard);
+}

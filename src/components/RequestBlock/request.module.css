@@ -1,0 +1,35 @@
+.req__container {
+  overflow: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+  gap: 10px;
+  background-color: var(--color-blue-dard);
+  border-radius: 10px;
+}
+
+
+.req__header {
+  width: 90%;
+  margin-top: 10px;
+}
+
+#req__url {
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .req__container {
+      min-width: 94%;
+      margin: auto;
+  }
+
+  .req__header {
+    width: 95%;
+  }
+}

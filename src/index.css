@@ -1,0 +1,19 @@
+:root {
+  --color-white: #ffffff;
+  --color-blue-light: #676f9d;
+  --color-blue: #424769;
+  --color-blue-dard: #2d3250;
+  --color-orange: #f9d17a;
+  --color-orange-glow: #fde9bd;
+}
+
+#root {
+  position: relative;
+  background-color: var(--color-blue-dard);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
